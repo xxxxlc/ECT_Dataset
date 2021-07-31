@@ -1,9 +1,13 @@
 clear all;
-addpath('func_file');
+
+%% Add function file path
+addpath('funcFile');
 addpath('grid');
-%% 全局变量设定
+
+%% Global variable setting
 Global_variable_setting;
-%% 循环产生流型
+
+%% Generate flow pattern loop sequence
 flow = zeros(1, 8000);
 for i = 1:1:8000
     if mod(i, 2) == 0
