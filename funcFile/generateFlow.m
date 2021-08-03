@@ -13,7 +13,7 @@ function [flowPatternSequence] = generateFlow(nFlow, ratioOfRandom)
 %   Its value must be greater than 1
 
 
-    if ratioOfRandom <= 1
+    if ratioOfRandom < 1
         disp(['The ratio of random flow pattern to typical flow pattern'...
              'is must more than 1']);
         return;
@@ -22,7 +22,7 @@ function [flowPatternSequence] = generateFlow(nFlow, ratioOfRandom)
     flowPatternSequence = zeros(1, nFlow);                                 % initialization
     
     proportionOfTypical = struct('Laminar_flow',   {3,1}, ...              % Proportion of typical flow patterns
-                                 'Full_ring',      {4,1}, ...
+                                 'Full_ring',      {4,1}, ...              % Laminar_flow: The serial number is 3, Percentage is 1
                                  'Center_ring',    {5,1}, ...
                                  'Eccentric_ring', {6,1}, ...
                                  'Central_flow',   {7,1}, ...
@@ -30,7 +30,7 @@ function [flowPatternSequence] = generateFlow(nFlow, ratioOfRandom)
                                  'Any_core_stream',{9,3});
     
 %   sequenceOfTypical = [3,4,5,6,7,8,8,9,9,9];
-    sequenceOfTypical = [];
+    sequenceOfTypical = [];                                                % Typical flow pattern sequence
     fields = fieldnames(proportionOfTypical);
     for i = 1:length(fields)
         k = fields(i);
