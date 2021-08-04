@@ -33,5 +33,4 @@ BigNum=1e10;
 
 
 %% COMSOL 常量
-global grid_num;                                                           %COMSOL网格数量
-grid_num = 200;
+GRID_NUM = 200;                                                            %COMSOL网格数量
