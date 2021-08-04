@@ -69,9 +69,10 @@ function [matrix, feature] = Generate_flowpattern(flowPattern, fileName, GRID_NU
     [FileName, FilePath] = writetxt(flowCoordinateMatrix, fileName);
     flowCoordinateMatrix = Interpolateddata(con_complementary);
     txtFileNameNumber = regexp(fileName, '\d+', 'match');
+    fileComplementaryName = regexp(fileName, '\_.*', 'match');
     [FileName, FilePath] = writetxt(flowCoordinateMatrix, ...
-                                    [num2str(str2num(txtFileNameNumber{1}))...
-                                    + 1, fileName(2:end), '.txt']);
+                                    [num2str(str2num(txtFileNameNumber{1})...
+                                    + 1), fileComplementaryName{1}]);
     matrix = {con_origin,con_complementary} ;
     feature = [name];
     
