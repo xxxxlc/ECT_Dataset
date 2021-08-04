@@ -15,7 +15,7 @@ Eout = 1;                                                                  % Die
 BigNum= 1e10;
 
 nodeinf = 'GridElec8Node32Image1054.xlsx';
-[gridIndex, NumImageElem] = grid_meshing(nodeinf); 
+[gridIndex, NumImageElem] = grid_meshing(nodeinf, Eout); 
 
 %% Generate flow pattern loop sequence
 nflow = 12;                                                                % the number of flow patterns generated
@@ -72,7 +72,7 @@ for i = 1:1:size(flowPatternSequence, 2)
         flowData(txtFileNameNumber).data_in = imageArray;
         flowData(txtFileNameNumber).name = feature;
         txtFileNameNumber = txtFileNameNumber + 1;
-    elseif flow(i) == 10                                                   % Random flow pattern
+    elseif flowPatternSequence(i) == 10                                                   % Random flow pattern
         imageArray = fill_grid(matrix{1}, gridIndex, NumImageElem);        % Native random flow pattern
         flowData(txtFileNameNumber).data_in = imageArray;
         flowData(txtFileNameNumber).name = feature;

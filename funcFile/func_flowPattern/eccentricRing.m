@@ -19,7 +19,7 @@ function [flowGrid, name] = eccentricRing(GRID_NUM, Eempty, Efull, r1, r2, cente
 %   flowGrid: Generate flow pattern concentration grid
 %   name: Chinese name of flow type
     
-    if nargin < 4:
+    if nargin < 4
         center_x = round(rand() * GRID_NUM);                              
         center_y = round(rand() * GRID_NUM);
         while ((center_x - GRID_NUM/2)^2 + (center_y - GRID_NUM/2)^2 ...

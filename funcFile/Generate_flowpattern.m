@@ -11,7 +11,7 @@ function [matrix, feature] = Generate_flowpattern(flowPattern, fileName, GRID_NU
 % matrix: int, Numerical matrix representing flow pattern
 % feature: char, Chinese name of flow type
 
-    addpath('func_flowPattern');
+    addpath('funcFile/func_flowPattern');
 
     %% Typical flow pattern
     if flowPattern ~= 10
@@ -48,7 +48,7 @@ function [matrix, feature] = Generate_flowpattern(flowPattern, fileName, GRID_NU
 
         flowCoordinateMatrix = Interpolateddata(con);                      % Convert flow pattern concentration distribution 
                                                                            % matrix to coordinate matrix
-        [FileName, FilePath] = writetxt(flowCoordinateMatrix, filename);   % Write all the information of the coordinate matrix 
+        [FileName, FilePath] = writetxt(flowCoordinateMatrix, fileName);   % Write all the information of the coordinate matrix 
                                                                            % into a txt file
 
         matrix = con;
@@ -66,11 +66,12 @@ function [matrix, feature] = Generate_flowpattern(flowPattern, fileName, GRID_NU
         
     flowCoordinateMatrix = Interpolateddata(con_origin);                   % Write random flow pattern and its complementary 
                                                                            % flow pattern into txt file separately
-    [FileName, FilePath] = writetxt(flowCoordinateMatrix, filename);
+    [FileName, FilePath] = writetxt(flowCoordinateMatrix, fileName);
     flowCoordinateMatrix = Interpolateddata(con_complementary);
+    txtFileNameNumber = regexp(fileName, '\d+', 'match');
     [FileName, FilePath] = writetxt(flowCoordinateMatrix, ...
-                                   strcat(num2str(...
-                                   str2num(fileName(1)) + 1), '.txt'));
+                                    [num2str(str2num(txtFileNameNumber{1}))...
+                                    + 1, fileName(2:end), '.txt']);
     matrix = {con_origin,con_complementary} ;
     feature = [name];
     
