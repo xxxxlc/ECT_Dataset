@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 .mph filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> 49cb1b822625624e38644688a7d2bc5fad0eb837
 *.mph filter=lfs diff=lfs merge=lfs -text
